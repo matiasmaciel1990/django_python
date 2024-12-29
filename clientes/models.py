@@ -10,5 +10,8 @@ class Cliente(models.Model):
 
     descuento = models.FloatField(default=0.0)
 
+    def aplicar_descuento(self, monto):
+        return monto - (monto * self.descuento / 100)
+
     def __str__(self):
         return self.nombre

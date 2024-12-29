@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Clientes</title>
+</head>
+<body>
+    <h1>Clientes</h1>
+
+    <!-- Botón para Crear Nuevo Cliente -->
+    <a href="{% url 'crear_cliente' %}">
+        <button>Crear Nuevo Cliente</button>
+    </a>
+
+    <hr>
+
+    <!-- Tabla de Clientes -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Descuento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.descuento }}</td>
+                <td>
+                    <!-- Botones para Modificar y Eliminar -->
+                    <a href="{% url 'modificar_cliente' cliente.id %}">
+                        <button>Modificar</button>
+                    </a>
+                    <a href="{% url 'eliminar_cliente' cliente.id %}">
+                        <button>Eliminar</button>
+                    </a>
+                    <a href="{% url 'visualizar_cliente' cliente.id %}">
+                        <button>Ver</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

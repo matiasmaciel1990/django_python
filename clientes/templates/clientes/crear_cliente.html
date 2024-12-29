@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cliente</title>
+</head>
+<body>
+    <h1>Crear Nuevo Cliente</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="descuento">Descuento (%):</label>
+        <input type="number" id="descuento" name="descuento" min="0" max="100" step="0.01" required>
+        <br>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'listar_clientes' %}">
+        <button>Volver</button>
+    </a>
+</body>
+</html>
