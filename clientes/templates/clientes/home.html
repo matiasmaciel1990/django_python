@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a la Gestión de Clientes</h1>
+    <div>
+        <a href="{% url 'crear_cliente' %}">
+            <button>Ingresar Cliente Nuevo</button>
+        </a>
+        <a href="{% url 'listar_clientes' %}">
+            <button>Listar Clientes</button>
+        </a>
+    </div>
+</body>
+</html>

@@ -9,6 +9,11 @@ from .models import Cliente
 def vista_inicio(request):
     return HttpResponse("¡Bienvenido a la gestión de clientes!")
 
+def prueba(request):
+    return render(request, 'clientes/prueba.html')
+
+def home(request):
+    return render(request, 'clientes/home.html')
 
 # Crear nuevo cliente
 def crear_cliente(request):
@@ -17,7 +22,7 @@ def crear_cliente(request):
         email = request.POST['email']
         descuento = request.POST['descuento']
         Cliente.objects.create(nombre=nombre, email=email, descuento=descuento)
-        return HttpResponseRedirect('/clientes/')  # Redirigir a la lista de clientes
+        # return HttpResponseRedirect('/clientes/')  # Redirigir a la lista de clientes
     return render(request, 'clientes/crear_cliente.html')
 
 # Modificar cliente
